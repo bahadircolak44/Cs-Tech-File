@@ -9,6 +9,14 @@ def f_komutu(kelime):
         print(len(result)," tane eslesme bulundu.")
         print (result)
         
+    # kelimenin basindaki ve sonunda ki * lar silinip textin icindeki kelimelerde bu substringi içeren olup olmadigini arar.
+    elif "*" in kelime:
+        kelime = kelime.replace("*","")
+        for x in f:
+            for word in x.split():
+                if kelime in word:
+                    print(word)
+                    
     #"-" veya "*" icermiyorsa
     else:
         i = 0
@@ -19,7 +27,7 @@ def f_komutu(kelime):
         print (i," tane eslesme bulundu.")
 try:              
     f = open('input.txt','r')
-    f_komutu("fazla")
+    f_komutu("*lan*")
 except IOError:
     print ("Dosya bulunamadi.")
     
