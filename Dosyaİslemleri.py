@@ -1,17 +1,16 @@
 import re
 
-def f_komutu(kelime):
-    
+def f_komutu(kelime,fileName):
+    f = open(fileName,'r')
     # aratilacak kelimede - karakteri var is regex icin . ile degistir. 
     if "-" in kelime:
-        kelime = kelime.replace("-",".")
+        kelime = kelime.replace('-','.')
         result = re.findall(kelime,f.read())
-        print(len(result)," tane eslesme bulundu.")
-        print (result)
-        
+        print(len(result),' tane eslesme bulundu.')
+
     # kelimenin basindaki ve sonunda ki * lar silinip textin icindeki kelimelerde bu substringi içeren olup olmadigini arar.
     elif "*" in kelime:
-        kelime = kelime.replace("*","")
+        kelime = kelime.replace('*','')
         for x in f:
             for word in x.split():
                 if kelime in word:
@@ -24,11 +23,25 @@ def f_komutu(kelime):
             for word in x.split():
                 if kelime == word:
                     i = i + 1
-        print (i," tane eslesme bulundu.")
-try:              
-    f = open('input.txt','r')
-    f_komutu("*lan*")
+        print (i,' tane eslesme bulundu.')
+
+def r_komutu(word1,word2,fileName):
+    f = open(fileName, 'r')
+    s = ' '
+    for x in f:
+        for word in x.split():
+            if word == word1:
+                word = word2
+                s = s+word + ' '
+            else:
+                s = s + word + ' '
+
+    with open(fileName, "w") as f:
+        f.write(s)
+try:
+    fileName = 'input.txt'
+    r_komutu('a', '1', fileName)
 except IOError:
-    print ("Dosya bulunamadi.")
+    print('Dosya bulunamadi.')
     
 
