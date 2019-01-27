@@ -7,3 +7,12 @@ Yapılan iş aşağıdaki gibidir.
 
 * Komutlar büyük küçük harfe duyarlı değildir.
 * Ornek bir input dosyasi klasor icerisinde bulunabilir.
+
+## **Nasıl Çalışır**
+git clone https://github.com/bahadircolak44/Cs-Tech-File
+
+cd Cs-Tech-File
+
+**Linux:** python <filename>.py
+  
+**Windows:** py <filename>.py
