@@ -1,6 +1,4 @@
 import re
-import os
-
 
 def f_komutu(text, f):
     i = 0
@@ -11,7 +9,6 @@ def f_komutu(text, f):
             for word in x.split():
                 if re.fullmatch(text, word):
                     i = i + 1
-                    print(word)
         print(i, ' tane eslesme bulundu.')
 
     # kelimenin basindaki ve sonunda ki * lar silinip textin icindeki kelimelerde bu substringi içeren olup olmadigini arar.
@@ -22,7 +19,7 @@ def f_komutu(text, f):
                 if re.fullmatch(text, word):
                     i = i + 1
                     print(word)
-
+        print(i, ' tane eslesme bulundu.')
     # "-" veya "*" icermiyorsa
     else:
         i = 0
@@ -61,18 +58,20 @@ def d_komutu(text, f):
     with open(fileName, "w") as f:
         f.write(s)
 
-
+control = True
 while (True):
-    fileName = input("Lutfen dosya yolunu giriniz: ")
+    if control:
+        fileName = input("Lutfen dosya yolunu giriniz: ")
     try:
         f = open(fileName, 'r')
+        control = False
     except IOError:
         print("Dosya okunurken bir hata olustu.")
         continue
     except ValueError:
         print("Dosya okunurken bir hata olustu.")
         continue
-    komut = str(input("Lutfen komut giriniz: "))
+    komut = input("Lutfen komut giriniz: ")
     command = komut.split()[0]
 
     if command.upper() == 'F':
