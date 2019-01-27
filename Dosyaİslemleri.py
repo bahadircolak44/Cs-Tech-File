@@ -38,9 +38,22 @@ def r_komutu(word1,word2,fileName):
 
     with open(fileName, "w") as f:
         f.write(s)
+def d_komutu(text,fileName):
+    f = open(fileName, 'r')
+    s = ' '
+    for x in f:
+        for word in x.split():
+            if word == text:
+                continue
+            else:
+                s = s + word + ' '
+
+    with open(fileName, "w") as f:
+        f.write(s)
 try:
     fileName = 'input.txt'
-    r_komutu('a', '1', fileName)
+    #r_komutu('a', '1', fileName)
+    d_komutu('ilk',fileName)
 except IOError:
     print('Dosya bulunamadi.')
     
