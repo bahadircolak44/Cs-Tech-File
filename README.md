@@ -13,6 +13,6 @@ git clone https://github.com/bahadircolak44/Cs-Tech-File
 
 cd Cs-Tech-File
 
-**Linux:** python <filename>.py
+**Linux:** python DosyaIslemleri.py
   
-**Windows:** py <filename>.py
+**Windows:** py DosyaIslemleri.py
