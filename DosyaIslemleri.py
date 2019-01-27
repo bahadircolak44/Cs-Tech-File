@@ -1,5 +1,6 @@
 import re
 
+
 def f_komutu(text, f):
     i = 0
     # aratilacak kelimede - karakteri var is regex icin . ile degistir.
@@ -18,7 +19,6 @@ def f_komutu(text, f):
             for word in x.split():
                 if re.fullmatch(text, word):
                     i = i + 1
-                    print(word)
         print(i, ' tane eslesme bulundu.')
     # "-" veya "*" icermiyorsa
     else:
@@ -41,8 +41,12 @@ def r_komutu(text1, text2, f, fileName):
             else:
                 s = s + word + ' '
 
-    with open(fileName, "w") as f:
-        f.write(s)
+    try:
+        with open(fileName, "w") as f:
+            f.write(s)
+        print("{}, {} ile basariyla degistirilmisitir".format(text1, text2))
+    except IOError:
+        print("Dosyaya yazilirken bir hata olustu.")
 
 
 # Eger silinmek istenen tam kelime bulunamazsa, o kelimeyi s ye append eder. Bulursa s icine dahil etmeden continue eder.
@@ -54,9 +58,13 @@ def d_komutu(text, f):
                 continue
             else:
                 s = s + word + ' '
+    try:
+        with open(fileName, "w") as f:
+            f.write(s)
+        print("{} basariyla silinmistir.".format(text))
+    except IOError:
+        print("Dosyaya yazilirken bir hata olustu.")
 
-    with open(fileName, "w") as f:
-        f.write(s)
 
 control = True
 while (True):
