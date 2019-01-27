@@ -16,3 +16,5 @@ cd Cs-Tech-File
 **Linux:** python DosyaIslemleri.py
   
 **Windows:** py DosyaIslemleri.py
+
+* Bitirmek için lütfen ctrl + c yapın.
